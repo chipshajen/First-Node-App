@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="header">
+        <h1>
+            <%= title %>
+        </h1>
+        <hr>
+        <div class="message">
+            <% messages.forEach(message=> { %>
+                <h2>
+                    User: <%= message.user %>
+                </h2>
+                <h2>
+                    Created At:<%= message.added %>
+                </h2>
+                <h2>
+                    Message: <%= message.text %>
+                </h2>
+                <hr>
+                <% }) %>
+        </div>
+        <hr>
+        <a href="./new">
+            <button>Post a new message</button>
+        </a>
+
+    </div>
+</body>
+
+</html>
