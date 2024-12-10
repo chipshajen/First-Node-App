@@ -1,0 +1,25 @@
+const queries = require('../db/queries')
+
+exports.getMessages = async(req, res) => {
+    const messages = await queries.getMessages()
+    res.render("index", {
+        title: "Message Board",
+        messages: messages
+    })
+}
+
+exports.showForm = (req, res) => {
+    res.render("form")
+}
+
+exports.addMessage = async(req, res) => {
+
+    
+    const data = {
+        message: req.body.message,
+        user: req.body.user
+    }
+    console.log(data)
+    await queries.addMessage(data);
+    res.redirect('/')
+}
